@@ -49,7 +49,6 @@ public class ManipulateUserServlett extends HttpServlet {
 		HttpSession session = request.getSession();
 
 		String check = request.getParameter("delete");
-		System.out.println("Check--->" + check);
 		List<String> value = Arrays.asList(check.split(","));
 
 		if (value.get(0).equalsIgnoreCase("Edit")) {
@@ -61,7 +60,7 @@ public class ManipulateUserServlett extends HttpServlet {
 		} else if (value.get(0).equalsIgnoreCase("Delete")) {
 			UserDetailsdto ud1 = new UserDetailsdto();
 			ud1.setUserId(Integer.valueOf(value.get(1)));
-			int a = IdentityDAO.delete(ud1);
+			IdentityDAO.delete(ud1);
 			List<UserDetailsdto> ud = IdentityDAO.getAllRecords();
 			session.setAttribute("allUsers", ud);
 			request.getRequestDispatcher("viewusers.jsp").forward(request, response);

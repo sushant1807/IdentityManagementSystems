@@ -5,7 +5,6 @@ import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -48,34 +47,30 @@ public class UpdateUserServlet extends HttpServlet {
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);
-//		IdentityDAO identityDAO = new IdentityDAO();
+		// IdentityDAO identityDAO = new IdentityDAO();
 		UserDetailsdto userDetailDTO = new UserDetailsdto();
 		UserDetailsdto ud = new UserDetailsdto();
-		
+
 		HttpSession session = request.getSession();
-		ud=(UserDetailsdto)session.getAttribute("user");
+		ud = (UserDetailsdto) session.getAttribute("user");
 		String id = request.getParameter("userId");
 		int ids = Integer.valueOf(id);
 		String name = request.getParameter("userName");
 		String password = request.getParameter("password");
 		String dname = request.getParameter("displayName");
-		System.out.println("dname--->"+dname);
 		userDetailDTO.setName(dname);
 		userDetailDTO.setUserName(name);
 		userDetailDTO.setPassword(password);
 		userDetailDTO.setUserId(ids);
-		System.out.println("dnameo--->"+userDetailDTO.getName());
 		UserDetailsDAO udao = new UserDetailsDAO();
-		if((name.equals(ud.getUserName())&&password.equals(ud.getPassword()))&&!(dname.equals(ud.getName())))
-				{
-					userDetailDTO.setValidUser(true);
-					IdentityDAO.update(userDetailDTO);
-					List<UserDetailsdto> ud1 = IdentityDAO.getAllRecords();
-					session.setAttribute("allUsers", ud1);
-					request.getRequestDispatcher("viewusers.jsp").forward(request, response);
-				}
-		
-	
+		if ((name.equals(ud.getUserName()) && password.equals(ud.getPassword())) && !(dname.equals(ud.getName()))) {
+			userDetailDTO.setValidUser(true);
+			IdentityDAO.update(userDetailDTO);
+			List<UserDetailsdto> ud1 = IdentityDAO.getAllRecords();
+			session.setAttribute("allUsers", ud1);
+			request.getRequestDispatcher("viewusers.jsp").forward(request, response);
+		}
+
 		else if (udao.validateUser(name, password)) {
 			userDetailDTO.setValidUser(true);
 			IdentityDAO.update(userDetailDTO);

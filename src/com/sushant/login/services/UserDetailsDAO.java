@@ -23,18 +23,11 @@ public Boolean validateUser(String userName, String password) {
 			
 			stmt.setString(1, userName);
 			stmt.setString(2, password);
-			System.out.println(userName);
-			System.out.println(password);
 			
 			// executing the query
 			ResultSet rs = stmt.executeQuery();
-			System.out.println(rs.getFetchSize());
 			
 			while(rs.next()) {
-				System.out.println(rs.getString("userName"));
-				System.out.println(rs.getString("password"));
-				System.out.println(userName);
-				System.out.println(password);
 				
 				if ((userName.equals(rs.getString("userName"))) && password.equals(rs.getString("password"))) {
 					b = false;
