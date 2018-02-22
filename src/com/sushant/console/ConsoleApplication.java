@@ -21,7 +21,6 @@ public class ConsoleApplication {
 		if ((uname != null && !uname.isEmpty()) && (password != null && !password.isEmpty())) {
 
 			UserDetailsDAO dao = new UserDetailsDAO();
-			System.out.println(dao.validateUser(uname, password));
 
 			if (!dao.validateUser(uname, password)) {
 

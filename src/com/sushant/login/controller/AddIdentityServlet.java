@@ -56,7 +56,6 @@ public class AddIdentityServlet extends HttpServlet {
 		doGet(request, response);
 		String view = request.getParameter("view");
 		HttpSession session = request.getSession();
-//		IdentityDAO identity = new IdentityDAO();
 		if (view.equals("view")) {
 			List<UserDetailsdto> ud = IdentityDAO.getAllRecords();
 			session.setAttribute("allUsers", ud);

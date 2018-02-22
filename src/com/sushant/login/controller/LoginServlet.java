@@ -40,8 +40,6 @@ public class LoginServlet extends HttpServlet {
 			// dispatching the result based on the outcome
 			// validating the user input
 			UserDetailsDAO dao = new UserDetailsDAO();
-			System.out.println(dao.validateUser(userName, password));
-
 			// calling the validate user method
 
 			if (!dao.validateUser(userName, password)) {

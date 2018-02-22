@@ -47,7 +47,6 @@ public class UpdateUserServlet extends HttpServlet {
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);
-		// IdentityDAO identityDAO = new IdentityDAO();
 		UserDetailsdto userDetailDTO = new UserDetailsdto();
 		UserDetailsdto ud = new UserDetailsdto();
 
