@@ -1,0 +1,1 @@
+20180222_20:02:05.187 - ERROR - error in save method :The statement was aborted because it would have caused a duplicate key value in a unique or primary key constraint or unique index identified by 'SQL180222101010801' defined on 'USER_DETAILS'.

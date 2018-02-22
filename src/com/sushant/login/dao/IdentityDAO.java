@@ -47,7 +47,6 @@ public class IdentityDAO {
 		int status = 0;
 		try {
 			Connection con = getConnection();
-			
 			PreparedStatement ps = con
 					.prepareStatement("update user_details set userName=?,password=?,displayName=? where userId=?");
 			ps.setString(1, u.getUserName());
